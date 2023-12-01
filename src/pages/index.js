@@ -129,7 +129,7 @@ const IndexPage = () => {
       <h1 style={headingStyles}>
         Congratulations
         <br />
-        <span style={headingAccentStyles}>— hmm je ne sais pas quoi en penser 🎉🎉🎉</span>
+        <span style={headingAccentStyles}>— Bienvenue sur mon site. Je débute encore, donc faudra attendre un peu ! 🎉🎉🎉</span>
       </h1>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
