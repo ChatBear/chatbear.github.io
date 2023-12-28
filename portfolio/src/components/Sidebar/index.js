@@ -1,16 +1,34 @@
 import './index.scss'
 import LogoS from '../../assets/images/logo-s.png'
 import LogoSubtitle from '../../assets/images/logo_sub.png'
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+
 
 const Sidebar = () => {
+    return (
     <div className="nav-bar"> 
-        ET LA IL SAFFICHE AU SEIN DE LA SIDEBAR OU PAS ?
+        Est-ce que ca change sur mon téléphone
         <Link className="logo" to="/">
         <img src={LogoS} alt="logo" /> 
-        <img className="sub-logo" src={LogoSubtitle} alt="shiraz" />
+        <img className="sub-logo" src={LogoSubtitle} alt="shiraz" /> 
         </Link>
+
+        <nav>
+            <NavLink exact="true" activeclassname="active" to="/">
+               <FontAwesomeIcon icon={faHome} color="#4d4d4e" /> 
+            </NavLink>
+
+            <NavLink exact="true" activeclassname="active" classname="about-link" to="/about">
+                <FontAwesomeIcon icon={faUser} color="#4d4d4e" /> 
+            </NavLink>
+            <NavLink exact="true" activeclassname="active" classname="contact-link" to="/contact">
+                <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" /> 
+            </NavLink>
+        </nav>
     </div>
+    )
 }
 
-export default Sidebar;
+export default Sidebar

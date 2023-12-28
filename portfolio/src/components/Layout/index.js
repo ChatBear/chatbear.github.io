@@ -6,7 +6,7 @@ import './index.scss';
 const Layout = () => {
     return (
         <>
-        <div> EST CELA S'AFFICHE AU MOINS PARCE QUE JE CABLE BORDEL</div>
+        <div>  </div>
         <Sidebar />
         </>
     )
