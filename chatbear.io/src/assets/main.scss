@@ -1,0 +1,31 @@
+body {
+  background-color: #000000;
+}
+
+.app {
+  &.button {
+    background-color: 'blue';
+  }
+  &.content {
+    height: 100000px;
+  }
+}
+
+.header {
+  &.radio-button {
+    background-color: #000000;
+    border-color: #fff;
+
+    &.ant-radio-button-wrapper-checked,
+    &:hover {
+      color: #000000;
+      border-color: #000000;
+      background-color: #fff;
+    }
+    &.ant-radio-button-wrapper-checked:hover {
+      background-color: #fff;
+      border-color: #000000;
+      color: #000000;
+    }
+  }
+}
