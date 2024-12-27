@@ -1,29 +1,36 @@
-import { Col, Layout, Radio, Row, Space } from 'antd';
-import type { CheckboxRef, RadioChangeEvent } from 'antd';
 import {
-  LegacyRef,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+  Col,
+  Layout,
+  Radio,
+  Row,
+  Space,
+  CheckboxRef,
+  RadioChangeEvent,
+  Typography,
+} from 'antd';
+
+import { useEffect, useRef, useState, CSSProperties } from 'react';
 import { motion } from 'motion/react';
 
 const { Header } = Layout;
-
-export const HeaderHome = () => {
-  const [aboutMePosition, setAboutMePosition] = useState<{
-    x: number;
-    y: number;
-  }>();
-  const [postPosition, setPostPosition] = useState<{
-    x: number;
-    y: number;
-  }>();
-  const [resumePosition, setResumePosition] = useState<{
-    x: number;
-    y: number;
-  }>();
+const { Title } = Typography;
+type HeaderHomeProps = {
+  style: CSSProperties;
+};
+export const HeaderHome = (props: HeaderHomeProps) => {
+  // const [aboutMePosition, setAboutMePosition] = useState<{
+  //   x: number;
+  //   y: number;
+  // }>();
+  // const [postPosition, setPostPosition] = useState<{
+  //   x: number;
+  //   y: number;
+  // }>();
+  // const [resumePosition, setResumePosition] = useState<{
+  //   x: number;
+  //   y: number;
+  // }>();
+  const { style } = props;
   const [headerValue, setHeaderValue] = useState<
     'about me' | 'post' | 'resume'
   >('about me');
@@ -35,43 +42,43 @@ export const HeaderHome = () => {
     setHeaderValue(e.target.value);
   };
 
-  useEffect(() => {
-    if (radioRefAboutMe.current) {
-      const rectAboutMe =
-        radioRefAboutMe.current?.nativeElement?.getBoundingClientRect();
-      setAboutMePosition({
-        x: rectAboutMe?.x as number,
-        y: rectAboutMe?.y as number,
-      });
-    }
-    if (radioRefPost.current) {
-      const rectPost =
-        radioRefPost.current?.nativeElement?.getBoundingClientRect();
-      setAboutMePosition({
-        x: rectPost?.x as number,
-        y: rectPost?.y as number,
-      });
-    }
-    if (radioRefAboutMe.current) {
-      const rectResume =
-        radioRefResume.current?.nativeElement?.getBoundingClientRect();
-      setAboutMePosition({
-        x: rectResume?.x as number,
-        y: rectResume?.y as number,
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (radioRefAboutMe.current) {
+  //     const rectAboutMe =
+  //       radioRefAboutMe.current?.nativeElement?.getBoundingClientRect();
+  //     setAboutMePosition({
+  //       x: rectAboutMe?.x as number,
+  //       y: rectAboutMe?.y as number,
+  //     });
+  //   }
+  //   if (radioRefPost.current) {
+  //     const rectPost =
+  //       radioRefPost.current?.nativeElement?.getBoundingClientRect();
+  //     setAboutMePosition({
+  //       x: rectPost?.x as number,
+  //       y: rectPost?.y as number,
+  //     });
+  //   }
+  //   if (radioRefAboutMe.current) {
+  //     const rectResume =
+  //       radioRefResume.current?.nativeElement?.getBoundingClientRect();
+  //     setAboutMePosition({
+  //       x: rectResume?.x as number,
+  //       y: rectResume?.y as number,
+  //     });
+  //   }
+  // }, []);
 
   return (
     <Header
       style={{
+        ...style,
         backgroundColor: 'black',
-        width: '100%',
         padding: 0,
       }}
     >
       <div className="header">
-        <motion.div
+        {/* <motion.div
           animate={{
             x:
               headerValue === 'about me'
@@ -88,7 +95,7 @@ export const HeaderHome = () => {
             backgroundColor: 'rgba(255, 255, 255, 0.5)',
             borderRadius: '100px',
           }} // Style for the animated background
-        />
+        /> */}
         <Radio.Group
           onChange={onChangeHeaderValue}
           optionType="button"
