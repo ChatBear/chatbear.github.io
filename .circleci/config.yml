@@ -23,7 +23,7 @@ jobs:
                 command: npm run build 
             - run:
                 name: Deploy to github pages 
-                command: gh-pages -d dist 
+                command: npx gh-pages -d dist 
       
 
 workflows:
