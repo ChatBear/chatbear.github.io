@@ -19,6 +19,9 @@ jobs:
             equal: [ main, << pipeline.git.branch >> ]
           steps:
             - run:
+                name: Set up GitHub credentials
+                command: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
+            - run:
                 name: Build the project 
                 command: npm run build 
             - run:
