@@ -35,12 +35,12 @@ export const HeaderHome = (props: HeaderHomeProps) => {
           value={headerValue}
           style={{ width: '100%' }}
         >
-          <Row justify="space-between" align="middle" gutter={80}>
+          <Row justify="space-between" align="middle" gutter={8}>
             <Col span={8}>
               <strong
                 style={{
                   marginLeft: '10%',
-                  fontSize: window.innerWidth < 600 ? '2vw' : '1vw',
+                  fontSize: window.innerWidth < 600 ? '3vw' : '1vw',
                   display: 'grid',
                   alignItems: 'center',
                 }}
