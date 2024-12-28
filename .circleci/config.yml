@@ -16,10 +16,10 @@ jobs:
             equal: [ main, << pipeline.git.branch >> ]
           steps:
             - run:
-              name: Set up GitHub credentials
-              command: |
-                git config --global user.email "${GITHUB_EMAIL}"
-                echo "${GITHUB_TOKEN}" | git credential approve
+                name: Set up GitHub credentials
+                command: |
+                  git config --global user.email "${GITHUB_EMAIL}"
+                  echo "${GITHUB_TOKEN}" | git credential approve
             - run:
                 name: Install depencies 
                 command: npm install
