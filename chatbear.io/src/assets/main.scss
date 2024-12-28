@@ -12,16 +12,33 @@ body {
   }
 }
 
-.header {
+.header-radio {
+  // .radio-style {
+  //   // width: '50%';
+  //   // display: flex;
+  //   // flex-direction: row-reverse;
+  //   // border: '2px solid white';
+  //   // margin-right: 20px;
+  // }
   &.radio-button {
     background-color: #000000;
-    border-color: #fff;
 
+    justify-content: center; // Center horizontally
+    align-items: center; // Center vertically
+    // justify-content: center;
+    margin-right: 10px; // Add a default margin for spacing
+    @media (max-width: 600px) {
+      // Responsive adjustment for smaller screens
+      margin-right: 0px; // Reduce margin on smaller screens
+    }
     &.ant-radio-button-wrapper-checked,
     &:hover {
       color: #000000;
       border-color: #000000;
       background-color: #fff;
+    }
+    &.ant-radio-button-wrapper-checked::before {
+      display: none;
     }
     &.ant-radio-button-wrapper-checked:hover {
       background-color: #fff;

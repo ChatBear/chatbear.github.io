@@ -1,35 +1,12 @@
-import {
-  Col,
-  Layout,
-  Radio,
-  Row,
-  Space,
-  CheckboxRef,
-  RadioChangeEvent,
-  Typography,
-} from 'antd';
+import { Layout, Radio, CheckboxRef, RadioChangeEvent, Row, Col } from 'antd';
 
-import { useEffect, useRef, useState, CSSProperties } from 'react';
-import { motion } from 'motion/react';
+import { useRef, useState, CSSProperties } from 'react';
 
 const { Header } = Layout;
-const { Title } = Typography;
 type HeaderHomeProps = {
   style: CSSProperties;
 };
 export const HeaderHome = (props: HeaderHomeProps) => {
-  // const [aboutMePosition, setAboutMePosition] = useState<{
-  //   x: number;
-  //   y: number;
-  // }>();
-  // const [postPosition, setPostPosition] = useState<{
-  //   x: number;
-  //   y: number;
-  // }>();
-  // const [resumePosition, setResumePosition] = useState<{
-  //   x: number;
-  //   y: number;
-  // }>();
   const { style } = props;
   const [headerValue, setHeaderValue] = useState<
     'about me' | 'post' | 'resume'
@@ -42,33 +19,6 @@ export const HeaderHome = (props: HeaderHomeProps) => {
     setHeaderValue(e.target.value);
   };
 
-  // useEffect(() => {
-  //   if (radioRefAboutMe.current) {
-  //     const rectAboutMe =
-  //       radioRefAboutMe.current?.nativeElement?.getBoundingClientRect();
-  //     setAboutMePosition({
-  //       x: rectAboutMe?.x as number,
-  //       y: rectAboutMe?.y as number,
-  //     });
-  //   }
-  //   if (radioRefPost.current) {
-  //     const rectPost =
-  //       radioRefPost.current?.nativeElement?.getBoundingClientRect();
-  //     setAboutMePosition({
-  //       x: rectPost?.x as number,
-  //       y: rectPost?.y as number,
-  //     });
-  //   }
-  //   if (radioRefAboutMe.current) {
-  //     const rectResume =
-  //       radioRefResume.current?.nativeElement?.getBoundingClientRect();
-  //     setAboutMePosition({
-  //       x: rectResume?.x as number,
-  //       y: rectResume?.y as number,
-  //     });
-  //   }
-  // }, []);
-
   return (
     <Header
       style={{
@@ -77,25 +27,7 @@ export const HeaderHome = (props: HeaderHomeProps) => {
         padding: 0,
       }}
     >
-      <div className="header">
-        {/* <motion.div
-          animate={{
-            x:
-              headerValue === 'about me'
-                ? aboutMePosition?.x
-                : headerValue === 'post'
-                  ? postPosition?.x
-                  : 0,
-          }} // Adjust x based on selected value
-          transition={{ type: 'spring', stiffness: 100 }} // Add transition for smooth animation
-          style={{
-            position: 'absolute',
-            width: '100px',
-            height: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            borderRadius: '100px',
-          }} // Style for the animated background
-        /> */}
+      <div className="header-radio">
         <Radio.Group
           onChange={onChangeHeaderValue}
           optionType="button"
@@ -103,50 +35,82 @@ export const HeaderHome = (props: HeaderHomeProps) => {
           value={headerValue}
           style={{ width: '100%' }}
         >
-          <Row justify="center">
+          <Row justify="space-between" align="middle" gutter={80}>
             <Col span={8}>
-              <Space direction="vertical" align="end" style={{ width: '100%' }}>
+              <strong
+                style={{
+                  marginLeft: '10%',
+                  fontSize: window.innerWidth < 600 ? '2vw' : '1vw',
+                  display: 'grid',
+                  alignItems: 'center',
+                }}
+              >
+                S. Adamaly
+              </strong>
+            </Col>
+            <Col>
+              <div className="radio-style">
                 <Radio
                   ref={radioRefAboutMe}
-                  className="header radio-button"
+                  className="header-radio radio-button"
                   value={'about me'}
-                  style={{ borderRadius: 100 }}
+                  style={{
+                    borderRadius: 100,
+                    textAlign: 'center',
+                  }}
                 >
-                  About me
+                  <strong
+                    style={{
+                      fontSize: window.innerWidth < 600 ? '2vw' : '1vw',
+                      display: 'grid',
+                      alignItems: 'center',
+                    }}
+                  >
+                    About me
+                  </strong>
                 </Radio>
-              </Space>
-            </Col>
-            <Col span={3}>
-              <Space
-                direction="vertical"
-                align="center"
-                style={{ width: '100%' }}
-              >
+
                 <Radio
                   ref={radioRefPost}
-                  className="header radio-button"
+                  className="header-radio radio-button"
                   value={'post'}
-                  style={{ borderRadius: 100 }}
+                  style={{
+                    borderRadius: 100,
+                    textAlign: 'center',
+                  }}
                 >
-                  Post
+                  <strong
+                    style={{
+                      fontSize: window.innerWidth < 600 ? '2vw' : '1vw',
+                      display: 'grid',
+                      alignItems: 'center',
+                    }}
+                  >
+                    Projects
+                  </strong>
                 </Radio>
-              </Space>
-            </Col>
-            <Col span={8}>
-              <Space
-                direction="vertical"
-                align="start"
-                style={{ width: '100%' }}
-              >
+
                 <Radio
                   ref={radioRefResume}
-                  className="header radio-button"
+                  className="header-radio radio-button"
                   value={'resume'}
-                  style={{ borderRadius: 100 }}
+                  style={{
+                    borderRadius: 100,
+                    // borderWidth: '2px',
+                    textAlign: 'center',
+                  }}
                 >
-                  Resume
+                  <strong
+                    style={{
+                      fontSize: window.innerWidth < 600 ? '2vw' : '1vw',
+                      display: 'grid',
+                      alignItems: 'center',
+                    }}
+                  >
+                    Resume
+                  </strong>
                 </Radio>
-              </Space>
+              </div>
             </Col>
           </Row>
         </Radio.Group>
