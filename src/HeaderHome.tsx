@@ -69,7 +69,6 @@ export const HeaderHome = (props: HeaderHomeProps) => {
                     About me
                   </strong>
                 </Radio>
-
                 <Radio
                   ref={radioRefPost}
                   className="header-radio radio-button"
