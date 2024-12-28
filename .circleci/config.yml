@@ -19,7 +19,7 @@ jobs:
                 name: Set up GitHub credentials
                 command: |
                   git config --global user.email "${GITHUB_EMAIL}"
-                  echo "${GITHUB_TOKEN}" | git credential approve
+                  git credential approve | echo "${GITHUB_TOKEN}"
             - run:
                 name: Install depencies 
                 command: npm install
